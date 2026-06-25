@@ -5,6 +5,7 @@ const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const connectDB = require("./db/db.js");
 const authRoutes = require("./routes/auth.js");
+const userRoutes = require("./routes/user.js");
 
 dotenv.config();
 
@@ -36,6 +37,7 @@ app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // ── Routes ────────────────────────────────────────────────────────────────────
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/users", userRoutes);
 
 // ── Health check ──────────────────────────────────────────────────────────────
 app.get("/", (req, res) => {
